@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio #9</title>
+	<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8"/>
+
+<script type="text/javascript">
+
+var frase = prompt("Ingrese una frase o palabra");
+
+function Palindromo(frase){
+
+frase=frase.toLowerCase().replace(/\s/g,"");
+
+Reverse=frase.split("").reverse().toString();
+
+	for (var i = 0; i < ((Reverse.length)-1); i++) {
+        Reverse=Reverse.replace(",","");
+      };
+
+      if(frase==Reverse){
+
+        result="ES UN PALINDROMO";
+      }
+      else{
+
+        result="NO ES UN PALINDROMO";
+      }
+
+      document.write("La frase o palabra: "+result);
+    }
+
+    Palindromo(frase);
+</script>
+</head>
+</html>
