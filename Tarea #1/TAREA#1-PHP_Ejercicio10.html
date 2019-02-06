@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio #10</title>
+</head>
+<body>
+<form action="php.php" method="POST">
+	<h1><center>Formulario - Ejercicio #10</center> </h1>
+	Nombre:<br> <input type="text" name="nombre"/>
+	<p> Apellidos:<br> <input type="text" name="apellidos"/> </p>
+	<p> Ano de Nacimiento:<br> <input type="number" name="nacimiento" min="1900"/></p>
+	<p> Sexo: <br>
+		<input type="radio" name="hm" value="m"> Mujer
+		<input type="radio" name="hm" value="h"> Hombre
+	</p>
+
+	<p> Direccion: <br> <textarea name="direccion"></textarea> </p>
+
+	<p> Estudiante Universitario: <br>
+		<input type="checkbox" name="estudiante" value="si"> Si, soy estudiante universitario <br>
+		<input type="checkbox" name="estudiante" value="no"> No soy estudiante universitario </p> <br>
+
+	<input type="submit" value="Guardar">
+
+</form>
+</body>
+</html>
