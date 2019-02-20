@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio 1</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="validar.js"></script>
+</head>
+<body>
+	<h1><center>Formulario Web - Ejercicio #1</center></h1> <br/>
+<form action="validarservidor.php" method="post" onsubmit="return validar();">
+
+		<laberl for ="nombre">Nombre de Usuario: </laberl>
+	    <input type="text" id="nombre" name="nombre" placeholder="Nombre.Apellido" maxlength="35" minlength="5"> <br/>
+
+	<br/> Contraseña: <input type="text" id="contra" name="contra" placeholder="Ingrese una contraseña" minlength="3" maxlength="15"> <br/>
+	<br/> Email: <input type="password" id="email" name="email" placeholder="Ingrese el Email" maxlength="50"><br/>
+	<br/> Fecha de nacimiento: <input type="date" id="nacimiento" name="nacimiento"><br/>
+	<input type="hidden" id="oculto" name="oculto" value="123"><br/>
+	<input type="submit" value="Registrar">
+
+</form>
+</body>
+</html>
