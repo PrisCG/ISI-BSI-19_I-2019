@@ -1,3 +1,2 @@
 # ProgramacionAvanzada - UAM
-Alumna: Priscilla Cascante Gudiño
-Carnet: 201620010819
+Alumna: Priscilla Cascante Gudiño-201620010819
