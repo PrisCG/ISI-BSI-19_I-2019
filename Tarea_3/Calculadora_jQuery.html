@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		input{
+			width: 40px;
+			height: 40px;
+		}
+
+		#display{
+			width: 100%;
+			height: 40px;
+		}
+	</style>
+
+	<title>Ejercicio #11</title>
+	<script src="jquery-3.3.1.min.js"></script>
+
+	<script>
+		var operador ="";
+		var operacion = false;
+		var acumulado="";
+		var num1 = 0;
+		var num2 = 0;
+
+		function marcar(numero){
+			acumulado += numero;
+			$("#display").val(acumulado);
+
+			if(operacion == false){
+				num1 = parseFloat(acumulado);
+			} else{
+				num2= parseFloat(acumulado);
+			}
+		}
+		function signo(signo){
+			switch (signo){
+				case "sumar":
+				operador = "sumar";
+				break;
+
+				case "restar":
+				operador = "restar";
+				break;
+
+				case "multiplicar":
+				operador = "multiplicar";
+				break;
+
+				case "dividir":
+				operador = "dividir";
+				break;
+			}
+			acumulado = "";
+			operacion = true;
+		}
+		function resultado(){
+			switch(operador){
+				case "sumar":
+				$.ajax({
+					url:"calcular.php",
+					method: "post",
+					data:{"numero1":num1, "numero2":num2, "sumar":1}
+				}).done(function(resultado){
+					$("#display").val(resultado);
+				});
+				break;
+
+				case "restar":
+				$.ajax({
+					url:"calcular.php",
+					method: "post",
+					data:{"numero1":num1, "numero2":num2, "restar":1}
+				}).done(function(resultado){
+					$("#display").val(resultado);
+				});
+				break;
+
+				case "multiplicar":
+				$.ajax({
+					url:"calcular.php",
+					method: "post",
+					data:{"numero1":num1, "numero2":num2, "multiplicar":1}
+				}).done(function(resultado){
+					$("#display").val(resultado);
+				});
+				break;
+
+				case "dividir":
+				$.ajax({
+					url:"calcular.php",
+					method: "post",
+					data:{"numero1":num1, "numero2":num2, "dividir":1}
+				}).done(function(resultado){
+					$("#display").val(resultado);
+				});
+				break;
+			}
+		}
+
+
+	</script>
+
+</head>
+
+<body>
+	<center>
+<table>
+	<tr><td colspan="4"><input type="text" id="display"/></td></tr>
+
+	<tr>
+		<td><input type="button" value="7" onclick="marcar(7);"/></td>
+		<td><input type="button" value="8" onclick="marcar(8);"/></td>
+		<td><input type="button" value="9" onclick="marcar(9);"/></td>
+		<td><input type="button" value="/" onclick="signo('dividir');" /></td>
+
+	</tr>
+
+	<tr>
+		<td><input type="button" value="4" onclick="marcar(4);"/></td>
+		<td><input type="button" value="5" onclick="marcar(5);"/></td>
+		<td><input type="button" value="6" onclick="marcar(6);"/></td>
+		<td><input type="button" value="*" onclick="signo('multiplicar');"/></td>
+	</tr>
+
+	<tr>
+		<td><input type="button" value="1" onclick="marcar(1);"/></td>
+		<td><input type="button" value="2" onclick="marcar(2);"/></td>
+		<td><input type="button" value="3" onclick="marcar(3);"/></td>
+		<td><input type="button" value="-" onclick="signo('restar');"/></td>
+	</tr>
+
+	<tr>
+		<td><input type="button" value="0" onclick="marcar(0);"/></td>
+		<td><input type="button" value="." onclick="marcar(.);"/></td>
+		<td><input type="button" value="+" onclick="signo('sumar');" /></td>
+		<td><input type="button" value="=" onclick="resultado();" /></td>
+	</tr>
+
+
+
+</table>
+</center>
+</body>
+</html>
